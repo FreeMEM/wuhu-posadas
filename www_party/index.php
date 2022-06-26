@@ -62,14 +62,14 @@ foreach($rows as $r) {
   }
   if ( $_SESSION["logindata"] && $r->type=='loggedout') continue;
   if (!$_SESSION["logindata"] && $r->type=='loggedin') continue;
-  $menuArray[] = "<a href='".build_url( $r->link )."'>".$r->title."</a>";
+  $menuArray[] = "<a class='pure-menu-link' href='".build_url( $r->link )."'>".$r->title."</a>";
 }
 
 run_hook("index_menu_parse",array("menu"=>&$menuArray));
 
-$menu = "<ul>\n";
+$menu = "<ul class='pure-menu-list'>\n";
 foreach($menuArray as $v)
-  $menu .= "<li>".$v."</li>\n";
+  $menu .= "<li class='pure-menu-item'>".$v."</li>\n";
 $menu .= "</ul>\n";
 
 run_hook("index_menu_end");
